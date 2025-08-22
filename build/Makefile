@@ -123,6 +123,43 @@ depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+#=============================================================================
+# Target rules for targets named LightYears
+
+# Build rule for target.
+LightYears: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LightYears
+.PHONY : LightYears
+
+# fast build rule for target.
+LightYears/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LightYears.dir/build.make CMakeFiles/LightYears.dir/build
+.PHONY : LightYears/fast
+
+light_years/src/main.o: light_years/src/main.cpp.o
+.PHONY : light_years/src/main.o
+
+# target to build an object file
+light_years/src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LightYears.dir/build.make CMakeFiles/LightYears.dir/light_years/src/main.cpp.o
+.PHONY : light_years/src/main.cpp.o
+
+light_years/src/main.i: light_years/src/main.cpp.i
+.PHONY : light_years/src/main.i
+
+# target to preprocess a source file
+light_years/src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LightYears.dir/build.make CMakeFiles/LightYears.dir/light_years/src/main.cpp.i
+.PHONY : light_years/src/main.cpp.i
+
+light_years/src/main.s: light_years/src/main.cpp.s
+.PHONY : light_years/src/main.s
+
+# target to generate assembly for a file
+light_years/src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LightYears.dir/build.make CMakeFiles/LightYears.dir/light_years/src/main.cpp.s
+.PHONY : light_years/src/main.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -132,6 +169,10 @@ help:
 	@echo "... codegen"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... LightYears"
+	@echo "... light_years/src/main.o"
+	@echo "... light_years/src/main.i"
+	@echo "... light_years/src/main.s"
 .PHONY : help
 
 
