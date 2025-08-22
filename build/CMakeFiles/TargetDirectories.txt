@@ -1,3 +1,0 @@
-/home/hash4hash/projects/cpp/light_years/build/CMakeFiles/LightYears.dir
-/home/hash4hash/projects/cpp/light_years/build/CMakeFiles/edit_cache.dir
-/home/hash4hash/projects/cpp/light_years/build/CMakeFiles/rebuild_cache.dir

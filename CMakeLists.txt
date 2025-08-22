@@ -11,7 +11,21 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS       OFF)
 
 
-add_executable(
-  LightYears
-  ${CMAKE_CURRENT_SOURCE_DIR}/light_years/src/main.cpp
+
+include(FetchContent)
+set(SFML_LIB_NAME SFML)
+
+FetchContent_Declare(
+  ${SFML_LIB_NAME}
+  GIT_REPOSITORY https://github.com/SFML/SFML
+  GIT_TAG 3.0.0
+  GIT_SHALLOW FALSE
+  EXCLUDE_FROM_ALL
+  SYSTEM
 )
+FetchContent_MakeAvailable(${SFML_LIB_NAME})
+
+# setting a custom variable
+set(LIGHT_YEARS_GAME_TARGET_NAME LightYears)
+# adding another CMakeList located inside source folders
+add_subdirectory(LightYears)

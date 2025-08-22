@@ -1,15 +1,80 @@
 {
   "version": 4,
-  "configurations": [
+  "cmakeMinimumRequired": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  },
+  "configurePresets": [
     {
-      "name": "default",
-      "description": "Default settings",
-      "hidden": false,
-      "generator": "Unix Makefiles",
-      "binaryDir": "${workspaceFolder}/build",
+      "name": "base-preset",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    },
+    {
+      "name": "ubuntu-debug",
+      "displayName": "Ubuntu Debug",
+      "description": "Sets up a Debug build with GCC.",
+      "inherits": "base-preset",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
-        "CMAKE_EXPORT_COMPILE_COMMANDS": "YES"
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      }
+    },
+    {
+      "name": "ubuntu-release",
+      "displayName": "Ubuntu Release",
+      "description": "Sets up a Release build with GCC.",
+      "inherits": "base-preset",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "ubuntu-debug",
+      "displayName": "Ubuntu Debug Build",
+      "configurePreset": "ubuntu-debug"
+    },
+    {
+      "name": "ubuntu-release",
+      "displayName": "Ubuntu Release Build",
+      "configurePreset": "ubuntu-release"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "ubuntu-debug",
+      "displayName": "Ubuntu Debug Tests",
+      "configurePreset": "ubuntu-debug",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "ubuntu-release",
+      "displayName": "Ubuntu Release Tests",
+      "configurePreset": "ubuntu-release",
+      "output": {
+        "outputOnFailure": true
       }
     }
   ]
