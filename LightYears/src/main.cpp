@@ -16,5 +16,5 @@ int main() {
     window.clear();
     window.display();
   }
-  std::cout << "Hello world" << std::endl;
+  std::cout << "Hello worlds" << std::endl;
 }
