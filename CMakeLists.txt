@@ -11,8 +11,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS       OFF)
 
 
-
+# a cmake library fot fetching cpp libraries using github
 include(FetchContent)
+# setting a variable with value of SFML
 set(SFML_LIB_NAME SFML)
 
 FetchContent_Declare(
