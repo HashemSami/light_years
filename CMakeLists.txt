@@ -27,6 +27,8 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(${SFML_LIB_NAME})
 
 # setting a custom variable
-set(LIGHT_YEARS_GAME_TARGET_NAME LightYears)
+set(LIGHT_YEARS_ENGINE_TARGET_NAME light_years_engine)
+set(LIGHT_YEARS_GAME_TARGET_NAME light_years_game)
 # adding another CMakeList located inside source folders
-add_subdirectory(LightYears)
+add_subdirectory(light_years_engine)
+add_subdirectory(light_years_game)
